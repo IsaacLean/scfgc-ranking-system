@@ -1,7 +1,5 @@
 <?php
-$dbhost = "localhost";
-$username = "admin";
-$password = "password";
+include("/db/config.php");
 
 try {
 	/* Connect to server */
