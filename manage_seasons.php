@@ -42,7 +42,7 @@
                       echo "<td>" . $season["season_name"] . "</td>";
                       echo "<td>" . $season["date_start"] . "</td>";
                       echo "<td>" . $season["date_end"] . "</td>";
-                      echo "<td><a href=\"#\"><button type=\"button\" class=\"btn btn-default\">Edit</button></a></td>";
+                      echo "<td><a href=\"/edit_season.php?season_id=" . $season["id"] . "\"><button type=\"button\" class=\"btn btn-default\">Edit</button></a></td>";
                     echo "</tr>";
                   }
                 ?>
