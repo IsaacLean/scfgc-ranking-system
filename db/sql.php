@@ -35,7 +35,7 @@ function dbInsert($sql) {
 	try {
 		/* Connect to server */
 	    $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $username, $password);
-	    // set the PDO error mode to exception
+	    // Set the PDO error mode to exception
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	    /* Execute the SQL command */
@@ -53,6 +53,28 @@ function dbInsert($sql) {
 }
 
 function dbQuery($sql) {
+	global $dbHost;
+	global $dbName;
+	global $username;
+	global $password;
 
+	try {
+	    /* Connect to server */
+	    $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $username, $password);
+	    // Set the PDO error mode to exception
+	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	    /* Execute the SQL command */
+	    $stmt = $conn->prepare($sql); 
+	    $stmt->execute();
+
+	    // 
+	    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+	    $result = $stmt->fetchAll();
+	    return $result;
+	}
+	catch(PDOException $e) {
+	    return null;
+	}
 }
 ?>

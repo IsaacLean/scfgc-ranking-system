@@ -4,8 +4,8 @@ include("/db/sql.php");
 $sql_rs_seasons = "CREATE TABLE rs_seasons (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     season_name VARCHAR(30) NOT NULL,
-    date_start TIMESTAMP,
-    date_end TIMESTAMP
+    date_start DATE,
+    date_end DATE
 )";
 
 $sql_rs_season_pts = "CREATE TABLE rs_season_pts (

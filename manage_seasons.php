@@ -31,24 +31,21 @@
                 	</tr>
             	</thead>
               	<tbody>
-             		<tr>
-                		<td>Season 1</td>
-                		<td>10/10/2014</td>
-                		<td>6/5/2015</td>
-                		<td><a href="#"><button type="button" class="btn btn-default">Edit</button></a></td>
-               		</tr>
-                	<tr>
-                		<td>Season 2</td>
-                		<td>10/10/2015</td>
-                		<td>6/5/2016</td>
-                		<td><a href="#"><button type="button" class="btn btn-default">Edit</button></a></td>
-               		</tr>
-               		<tr>
-                		<td>Season 3</td>
-                		<td>10/10/2016</td>
-                		<td>6/5/2017</td>
-                		<td><a href="#"><button type="button" class="btn btn-default">Edit</button></a></td>
-               		</tr>
+             		<?php
+                  /* Print all seasons in database */
+                  include("db/sql.php");
+                  $sql_get_seasons = "SELECT * FROM rs_seasons ORDER BY id DESC";
+                  $seasons = dbQuery($sql_get_seasons);
+                
+                  foreach($seasons as $season) {
+                    echo "<tr>";
+                      echo "<td>" . $season["season_name"] . "</td>";
+                      echo "<td>" . $season["date_start"] . "</td>";
+                      echo "<td>" . $season["date_end"] . "</td>";
+                      echo "<td><a href=\"#\"><button type=\"button\" class=\"btn btn-default\">Edit</button></a></td>";
+                    echo "</tr>";
+                  }
+                ?>
               </tbody>
             </table>
           </div>
