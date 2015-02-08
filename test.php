@@ -1,11 +1,11 @@
 <?php
-$executeFunc = function($inputFunc) {
+function queryTest($inputFunc) {
 	$inputFunc();
-};
+}
 
 $herroWorld = function() {
 	echo("herro world");
 };
 
-$executeFunc($herroWorld);
+queryTest($herroWorld);
 ?>

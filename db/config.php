@@ -1,5 +1,6 @@
 <?php
-$dbhost = "localhost";
+$dbHost = "localhost";
+$dbName = "scfgc_rs_db";
 $username = "admin";
 $password = "password";
 ?>
