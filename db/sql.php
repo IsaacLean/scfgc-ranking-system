@@ -17,10 +17,10 @@ function dbCmd($sql) {
 		/* Execute the SQL command */
 	    $conn->exec($sql);
 
-	    /* If command succeeds, return True */
+	    // If command succeeds, return True
 	    return True;
 	} catch(PDOException $e) {
-		/* If command fails, return False */
+		// If command fails, return False
 		return False;
 	}
 }
@@ -41,11 +41,11 @@ function dbInsert($sql) {
 	    /* Execute the SQL command */
 	    $conn->exec($sql);
 
-	    /* If command succeeds, get ID for most recent inserted record and return it */
+	    // If command succeeds, get ID for most recent inserted record and return it
 	    $last_id = $conn->lastInsertId();
 	    return $last_id;
 	} catch(PDOException $e) {
-		/* If command fails, return -1 */
+		// If command fails, return -1
 	    return -1;
 	}
 

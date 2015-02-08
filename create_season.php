@@ -23,7 +23,7 @@
             <form action="/create_season_hand.php" method="post">
               <div class="form-group">
                 <label for="season_name">Season name</label>
-                <input type="text" class="form-control" id="season_name" name="season_name" placeholder="Ex: Season 5">
+                <input type="text" class="form-control" id="season_name" name="season_name" placeholder="Ex: Season 5" required>
               </div>
               <div class="form-group">
                 <label for="date_start">Start Date</label>
@@ -35,35 +35,35 @@
               </div>
               <div class="form-group">
                 <label for="rank_1_pts">Points earned for #1</label>
-                <input type="number" class="form-control" id="rank_1_pts" name="rank_1_pts" placeholder="Ex: 32">
+                <input type="number" class="form-control" id="rank_1_pts" name="rank_1_pts" placeholder="Ex: 32" required>
               </div>
               <div class="form-group">
                 <label for="rank_2_pts">Points earned for #2</label>
-                <input type="number" class="form-control" id="rank_2_pts" name="rank_2_pts" placeholder="Ex: 20">
+                <input type="number" class="form-control" id="rank_2_pts" name="rank_2_pts" placeholder="Ex: 20" required>
               </div>
               <div class="form-group">
                 <label for="rank_3_pts">Points earned for #3</label>
-                <input type="number" class="form-control" id="rank_3_pts" name="rank_3_pts" placeholder="Ex: 12">
+                <input type="number" class="form-control" id="rank_3_pts" name="rank_3_pts" placeholder="Ex: 12" required>
               </div>
               <div class="form-group">
                 <label for="rank_4_pts">Points earned for #4</label>
-                <input type="number" class="form-control" id="rank_4_pts" name="rank_4_pts" placeholder="Ex: 8">
+                <input type="number" class="form-control" id="rank_4_pts" name="rank_4_pts" placeholder="Ex: 8" required>
               </div>
               <div class="form-group">
                 <label for="rank_5_pts">Points earned for #5</label>
-                <input type="number" class="form-control" id="rank_5_pts" name="rank_5_pts" placeholder="Ex: 4">
+                <input type="number" class="form-control" id="rank_5_pts" name="rank_5_pts" placeholder="Ex: 4" required>
               </div>
               <div class="form-group">
                 <label for="rank_7_pts">Points earned for #7</label>
-                <input type="number" class="form-control" id="rank_7_pts" name="rank_7_pts" placeholder="Ex: 2">
+                <input type="number" class="form-control" id="rank_7_pts" name="rank_7_pts" placeholder="Ex: 2" required>
               </div>
               <div class="form-group">
                 <label for="rank_9_pts">Points earned for #9</label>
-                <input type="number" class="form-control" id="rank_9_pts" name="rank_9_pts" placeholder="Ex: 1">
+                <input type="number" class="form-control" id="rank_9_pts" name="rank_9_pts" placeholder="Ex: 1" required>
               </div>
               <div class="form-group">
                 <label for="rank_13_pts">Points earned for #13</label>
-                <input type="number" class="form-control" id="rank_13_pts" name="rank_13_pts" placeholder="Ex: 1">
+                <input type="number" class="form-control" id="rank_13_pts" name="rank_13_pts" placeholder="Ex: 1" required>
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
