@@ -20,8 +20,12 @@
         <?php include("/fragments/sidebar.php") ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Create new season</h1>
-          <div class="table-responsive">
-            <form>
+            <form action="create_season_hand.php" method="get">
+Name: <input type="text" name="name"><br>
+E-mail: <input type="text" name="email"><br>
+<input type="submit">
+</form>
+            <!--<form>
               <div class="form-group">
                 <label for="season_name">Season name</label>
                 <input type="text" class="form-control" id="season_name" placeholder="Ex: Season 5">
@@ -67,8 +71,7 @@
                 <input type="number" class="form-control" id="rank_13_pts" placeholder="Ex: 1">
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-          </div>
+            </form>-->
         </div>
       </div>
     </div>
