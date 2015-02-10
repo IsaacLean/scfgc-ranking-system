@@ -30,21 +30,21 @@
                 		<th></th>
                 	</tr>
             	</thead>
-              	<tbody>
+              <tbody>
              		<?php
-                  /* Print all seasons in database */
-                  include("db/sql.php");
-                  $sql_get_seasons = "SELECT * FROM rs_seasons ORDER BY id DESC";
-                  $seasons = dbQuery($sql_get_seasons);
+                /* Print all seasons in database */
+                include("db/sql.php");
+                $sql_get_seasons = "SELECT * FROM rs_seasons ORDER BY id DESC";
+                $seasons = dbQuery($sql_get_seasons);
                 
-                  foreach($seasons as $season) {
-                    echo "<tr>";
-                      echo "<td>" . $season["season_name"] . "</td>";
-                      echo "<td>" . $season["date_start"] . "</td>";
-                      echo "<td>" . $season["date_end"] . "</td>";
-                      echo "<td><a href=\"/edit_season.php?season_id=" . $season["id"] . "\"><button type=\"button\" class=\"btn btn-default\">Edit</button></a></td>";
-                    echo "</tr>";
-                  }
+                foreach($seasons as $season) {
+                  echo "<tr>";
+                  echo "<td>" . $season["season_name"] . "</td>";
+                  echo "<td>" . $season["date_start"] . "</td>";
+                  echo "<td>" . $season["date_end"] . "</td>";
+                  echo "<td><a href=\"/edit_season.php?season_id=" . $season["id"] . "\"><button type=\"button\" class=\"btn btn-default\">Edit</button></a></td>";
+                  echo "</tr>";
+                }
                 ?>
               </tbody>
             </table>
