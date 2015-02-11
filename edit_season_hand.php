@@ -19,7 +19,6 @@ $rank_13_pts = $_POST["rank_13_pts"];
 /* Create new season */
 $sql_update_season = "UPDATE rs_seasons SET 
 	season_num = '" . $season_num . "', season_name = '" . $season_name . "', date_start = '" . $date_start . "', date_end = '" . $date_end . "' WHERE id = " . $season_id;
-
 $success = dbUpdate($sql_update_season);
 
 if($success) {
@@ -36,7 +35,6 @@ if($success) {
 				WHEN 13 THEN " . $rank_13_pts . "
 			END
 		WHERE `season_id` = " . $season_id;
-
 	dbUpdate($sql_update_rank_pts);
 }
 
