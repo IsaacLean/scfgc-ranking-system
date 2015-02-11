@@ -1,10 +1,35 @@
+<?php
+/* Print all seasons in database */
+include("db/sql.php");
+
+/* Get season data */
+$season_id = $_GET["season_id"];
+$sql_get_season_with_id = "SELECT * FROM rs_seasons WHERE id = " . $season_id;
+$season = dbQuery($sql_get_season_with_id);
+
+foreach($season as $data) {
+	$season_num = $data["season_num"];
+	$season_name = $data["season_name"];
+	$date_start = $data["date_start"];
+	$date_end = $data["date_end"];
+}
+
+/* Get points for ranks in season */
+$sql_get_season_rank_pts = "SELECT * FROM rs_season_pts WHERE season_id = " . $_GET["season_id"];
+$rank_pts = dbQuery($sql_get_season_rank_pts);
+$ranks = [];
+
+foreach($rank_pts as $data) {
+	$ranks[intval($data["rank"])] = intval($data["points"]);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Manage seasons | SCFGC Ranking System</title>
+	<title>Edit "<?php echo $season_name ?>" | SCFGC Ranking System</title>
 	<link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/style.css" rel="stylesheet">
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -19,32 +44,7 @@
   		<div class="row">
   			<?php include("/fragments/sidebar.php") ?>
   			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  				<h1 class="page-header">Edit season</h1>
-  				<?php
-  				/* Print all seasons in database */
-  				include("db/sql.php");
-
-  				/* Get season data */
-  				$season_id = $_GET["season_id"];
-  				$sql_get_season_with_id = "SELECT * FROM rs_seasons WHERE id = " . $season_id;
-  				$season = dbQuery($sql_get_season_with_id);
-
-  				foreach($season as $data) {
-  					$season_num = $data["season_num"];
-  					$season_name = $data["season_name"];
-  					$date_start = $data["date_start"];
-  					$date_end = $data["date_end"];
-  				}
-
-  				/* Get points for ranks in season */
-  				$sql_get_season_rank_pts = "SELECT * FROM rs_season_pts WHERE season_id = " . $_GET["season_id"];
-  				$rank_pts = dbQuery($sql_get_season_rank_pts);
-  				$ranks = [];
-
-  				foreach($rank_pts as $data) {
-  					$ranks[intval($data["rank"])] = intval($data["points"]);
-  				}
-  				?>
+  				<h1 class="page-header">Edit "<?php echo $season_name ?>"</h1>
   				<?php
   				echo '<form action="/edit_season_hand.php?season_id=' . $_GET["season_id"] . '" method="post">
 	  				<div class="form-group">
