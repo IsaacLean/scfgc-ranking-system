@@ -20,7 +20,7 @@
         <?php include("/fragments/sidebar.php") ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">SCFGC Ranking System</h1>
-          	<p>Welcome to the SCFGC Ranking System!</p>
+          	<p>Welcome to the <strong>Santa Cruz FGC Ranking System</strong>!</p>
           </div>
         </div>
       </div>
