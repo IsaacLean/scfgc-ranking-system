@@ -22,6 +22,10 @@
           <h1 class="page-header">Create new season</h1>
             <form action="/create_season_hand.php" method="post">
               <div class="form-group">
+                <label for="season_num">Season number</label>
+                <input type="number" class="form-control" id="season_num" name="season_num" placeholder="Ex: 5" required>
+              </div>
+              <div class="form-group">
                 <label for="season_name">Season name</label>
                 <input type="text" class="form-control" id="season_name" name="season_name" placeholder="Ex: Season 5" required>
               </div>

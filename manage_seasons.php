@@ -24,10 +24,12 @@
             <table class="table table-striped">
             	<thead>
                 	<tr>
+                    <th>Season #</th>
                 		<th>Season Name</th>
                 		<th>Start Date</th>
                 		<th>End Date</th>
                 		<th></th>
+                    <th></th>
                 	</tr>
             	</thead>
               <tbody>
@@ -39,10 +41,12 @@
                 
                 foreach($seasons as $season) {
                   echo "<tr>";
+                  echo "<td>" . $season["season_num"] . "</td>";
                   echo "<td>" . $season["season_name"] . "</td>";
                   echo "<td>" . $season["date_start"] . "</td>";
                   echo "<td>" . $season["date_end"] . "</td>";
                   echo "<td><a href=\"/edit_season.php?season_id=" . $season["id"] . "\"><button type=\"button\" class=\"btn btn-default\">Edit</button></a></td>";
+                  echo "<td><a href=\"/view_season.php?season_id=" . $season["id"] . "\"><button type=\"button\" class=\"btn btn-default\">View</button></a></td>";
                   echo "</tr>";
                 }
                 ?>

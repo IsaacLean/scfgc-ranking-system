@@ -77,4 +77,28 @@ function dbQuery($sql) {
 	    return null;
 	}
 }
+
+function dbUpdate($sql) {
+	global $dbHost;
+	global $dbName;
+	global $username;
+	global $password;
+
+	try {
+	    /* Connect to server */
+	    $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $username, $password);
+	    // Set the PDO error mode to exception
+	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	    /* Execute the SQL command */
+	    $stmt = $conn->prepare($sql); 
+	    $stmt->execute();
+
+	    // If command succeeds, return True
+	    return True;
+	} catch(PDOException $e) {
+		// If command fails, return False
+		return False;
+	}
+}
 ?>

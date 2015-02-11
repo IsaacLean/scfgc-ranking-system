@@ -9,8 +9,4 @@
 	            <li><a href="#">Manage events</a></li>
 	            <li><a href="#">Create new event</a></li>
           	</ul>
-          	<h3>Rankings</h3>
-          	<ul class="nav nav-sidebar">
-	            <li><a href="">Show rankings for a season</a></li>
-          	</ul>
         </div>
