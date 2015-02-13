@@ -1,13 +1,14 @@
 <?php
 include("db/sql.php");
-$event_id = $_GET["event_id"];
-$sql_get_event = "SELECT * FROM rs_events WHERE id = " . $event_id;
-$event = dbQuery($sql_get_event);
+$season_id = $_GET["season_id"];
+$sql_get_season = "SELECT * FROM rs_seasons WHERE id = " . $season_id;
+$season = dbQuery($sql_get_season);
 
-foreach($event as $data) {
-  $event_num = $data["event_num"];
-  $event_name = $data["event_name"];
-  $date = $data["event_date"];
+foreach($season as $data) {
+  $season_num = $data["season_num"];
+  $season_name = $data["season_name"];
+  $date_start = $data["date_start"];
+  $date_end = $data["date_end"];
 }
 ?>
 <!DOCTYPE html>
@@ -16,7 +17,7 @@ foreach($event as $data) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View "<?php echo $event_name ?>" | SCFGC Ranking System</title>
+    <title>View "<?php echo $season_name ?>" | SCFGC Ranking System</title>
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/style.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -31,23 +32,24 @@ foreach($event as $data) {
       <div class="row">
         <?php include("/fragments/sidebar.php") ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">View "<?php echo $event_name ?>"</h1>
+          <h1 class="page-header">View "<?php echo $season_name ?>"</h1>
           <div class="table-responsive">
             <table class="table table-striped">
             	<thead>
                 	<tr>
-                    <th>Event #</th>
-                		<th>Event Name</th>
-                		<th>Date</th>
-                    <th></th>
+                    <th>Season #</th>
+                		<th>Season Name</th>
+                		<th>Start Date</th>
+                    <th>End Date</th>
                 	</tr>
             	</thead>
               <tbody>
              		<?php
                 echo "<tr>";
-                echo "<td>" . $event_num . "</td>";
-                echo "<td>" . $event_name . "</td>";
-                echo "<td>" . $date . "</td>";
+                echo "<td>" . $season_num . "</td>";
+                echo "<td>" . $season_name . "</td>";
+                echo "<td>" . $date_start . "</td>";
+                echo "<td>" . $date_end . "</td>";
                 echo "</tr>";
                 ?>
               </tbody>
@@ -57,20 +59,12 @@ foreach($event as $data) {
                   <tr>
                     <th>Rank</th>
                     <th>Player Name</th>
+                    <th>Points</th>
                   </tr>
               </thead>
               <tbody>
                 <?php
-                /* Get players & ranks */
-                $sql_get_event_results = "SELECT * FROM rs_event_results WHERE event_id = " . $event_id;
-                $event_results = dbQuery($sql_get_event_results);
-
-                foreach($event_results as $result) {
-                  echo "<tr>";
-                  echo "<td>" . $result["player_rank"] . "</td>";
-                  echo "<td>" . $result["player_name"] . "</td>";
-                  echo "</tr>";
-                }
+                
                 ?>
               </tbody>
             </table>
