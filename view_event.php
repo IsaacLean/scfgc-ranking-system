@@ -1,10 +1,22 @@
+<?php
+include("db/sql.php");
+$event_id = $_GET["event_id"];
+$sql_get_event = "SELECT * FROM rs_events WHERE id = " . $event_id;
+$event = dbQuery($sql_get_event);
+
+foreach($event as $data) {
+  $event_num = $data["event_num"];
+  $event_name = $data["event_name"];
+  $date = $data["event_date"];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Manage events | SCFGC Ranking System</title>
+    <title>View "<?php echo $event_name ?>" | SCFGC Ranking System</title>
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/style.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -19,7 +31,7 @@
       <div class="row">
         <?php include("/fragments/sidebar.php") ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Manage events</h1>
+          <h1 class="page-header"><?php echo $event_name ?></h1>
           <div class="table-responsive">
             <table class="table table-striped">
             	<thead>
@@ -32,17 +44,33 @@
             	</thead>
               <tbody>
              		<?php
-                /* Print all events in database */
-                include("db/sql.php");
-                $sql_get_events = "SELECT * FROM rs_events ORDER BY id DESC";
-                $events = dbQuery($sql_get_events);
-                
-                foreach($events as $event) {
+                foreach($event as $data) {
                   echo "<tr>";
-                  echo "<td>" . $event["event_num"] . "</td>";
-                  echo "<td>" . $event["event_name"] . "</td>";
-                  echo "<td>" . $event["event_date"] . "</td>";
-                  echo "<td><a href=\"/view_event.php?event_id=" . $event["id"] . "\"><button type=\"button\" class=\"btn btn-default\">View</button></a></td>";
+                  echo "<td>" . $event_num . "</td>";
+                  echo "<td>" . $event_name . "</td>";
+                  echo "<td>" . $date . "</td>";
+                  echo "</tr>";
+                }
+                ?>
+              </tbody>
+            </table>
+            <table class="table table-striped">
+              <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Player Name</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <?php
+                /* Get players & ranks */
+                $sql_get_event_results = "SELECT * FROM rs_event_results WHERE event_id = " . $event_id;
+                $event_results = dbQuery($sql_get_event_results);
+
+                foreach($event_results as $result) {
+                  echo "<tr>";
+                  echo "<td>" . $result["player_rank"] . "</td>";
+                  echo "<td>" . $result["player_name"] . "</td>";
                   echo "</tr>";
                 }
                 ?>
