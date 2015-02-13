@@ -3,7 +3,6 @@ include("/db/sql.php");
 
 /* Get form values from create_season.php */
 $season_id = $_GET["season_id"];
-$season_num = $_POST["season_num"];
 $season_name = $_POST["season_name"];
 $date_start = $_POST["date_start"];
 $date_end = $_POST["date_end"];
@@ -18,7 +17,7 @@ $rank_13_pts = $_POST["rank_13_pts"];
 
 /* Create new season */
 $sql_update_season = "UPDATE rs_seasons SET 
-	season_num = '" . $season_num . "', season_name = '" . $season_name . "', date_start = '" . $date_start . "', date_end = '" . $date_end . "' WHERE id = " . $season_id;
+	season_name = '" . $season_name . "', date_start = '" . $date_start . "', date_end = '" . $date_end . "' WHERE id = " . $season_id;
 $success = dbUpdate($sql_update_season);
 
 if($success) {

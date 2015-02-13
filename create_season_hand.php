@@ -2,7 +2,6 @@
 include("/db/sql.php");
 
 /* Get form values from create_season.php */
-$season_num = $_POST["season_num"];
 $season_name = $_POST["season_name"];
 $date_start = $_POST["date_start"];
 $date_end = $_POST["date_end"];
@@ -16,8 +15,8 @@ $rank_9_pts = $_POST["rank_9_pts"];
 $rank_13_pts = $_POST["rank_13_pts"];
 
 /* Create new season */
-$sql_new_season = "INSERT INTO rs_seasons (season_num, season_name, date_start, date_end)
-	VALUES ( '" . $season_num . "', '" . $season_name . "', '" . $date_start ."', '" . $date_end ."')";
+$sql_new_season = "INSERT INTO rs_seasons (season_name, date_start, date_end)
+	VALUES ('" . $season_name . "', '" . $date_start ."', '" . $date_end ."')";
 
 $lastId = dbInsert($sql_new_season);
 

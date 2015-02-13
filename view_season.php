@@ -5,7 +5,6 @@ $sql_get_season = "SELECT * FROM rs_seasons WHERE id = " . $season_id;
 $season = dbQuery($sql_get_season);
 
 foreach($season as $data) {
-  $season_num = $data["season_num"];
   $season_name = $data["season_name"];
   $date_start = $data["date_start"];
   $date_end = $data["date_end"];
@@ -37,7 +36,6 @@ foreach($season as $data) {
             <table class="table table-striped">
             	<thead>
                 	<tr>
-                    <th>Season #</th>
                 		<th>Season Name</th>
                 		<th>Start Date</th>
                     <th>End Date</th>
@@ -46,7 +44,6 @@ foreach($season as $data) {
               <tbody>
              		<?php
                 echo "<tr>";
-                echo "<td>" . $season_num . "</td>";
                 echo "<td>" . $season_name . "</td>";
                 echo "<td>" . $date_start . "</td>";
                 echo "<td>" . $date_end . "</td>";
@@ -79,7 +76,7 @@ foreach($season as $data) {
                 $season_results = [];
 
                 /* Get all individual player results for season */
-                $sql_get_season_results = "SELECT * FROM rs_event_results WHERE season_id = " . $season_num;
+                $sql_get_season_results = "SELECT * FROM rs_event_results WHERE season_id = " . $season_id;
                 $event_results = dbQuery($sql_get_season_results);
 
                 /* Total up players' points earned through entire season */

@@ -8,7 +8,6 @@ $sql_get_season_with_id = "SELECT * FROM rs_seasons WHERE id = " . $season_id;
 $season = dbQuery($sql_get_season_with_id);
 
 foreach($season as $data) {
-	$season_num = $data["season_num"];
 	$season_name = $data["season_name"];
 	$date_start = $data["date_start"];
 	$date_end = $data["date_end"];
@@ -47,10 +46,6 @@ foreach($rank_pts as $data) {
   				<h1 class="page-header">Edit "<?php echo $season_name ?>"</h1>
   				<?php
   				echo '<form action="/edit_season_hand.php?season_id=' . $_GET["season_id"] . '" method="post">
-	  				<div class="form-group">
-	  				<label for="season_num">Season number</label>
-	  				<input type="number" class="form-control" id="season_num" name="season_num" value="' . $season_num . '" required>
-	  				</div>
 	  				<div class="form-group">
 	  				<label for="season_name">Season name</label>
 	  				<input type="text" class="form-control" id="season_name" name="season_name" value="' . $season_name . '" required>

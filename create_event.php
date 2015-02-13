@@ -1,13 +1,13 @@
 <?php
 include("/db/sql.php");
 
-$sql_get_seasons = "SELECT season_num, season_name FROM rs_seasons";
+$sql_get_seasons = "SELECT id, season_name FROM rs_seasons";
 $seasons = dbQuery($sql_get_seasons);
 $seasonArr = [];
 
 foreach($seasons as $season) {
   $seasonData = array(
-    "season_num"  => $season["season_num"],
+    "season_id" => $season["id"],
     "season_name"  => $season["season_name"]
   );
 
@@ -42,7 +42,7 @@ foreach($seasons as $season) {
                 <select class="form-control" id="season" name="season" required>
                   <?php
                   foreach($seasonArr as $season) {
-                    echo "<option>" . $season["season_num"] . "</option>";
+                    echo "<option value=\"" . $season["season_id"] . "\">" . $season["season_name"] . "</option>";
                   }
                   ?>
                 </select>

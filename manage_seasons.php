@@ -24,7 +24,6 @@
             <table class="table table-striped">
             	<thead>
                 	<tr>
-                    <th>Season #</th>
                 		<th>Season Name</th>
                 		<th>Start Date</th>
                 		<th>End Date</th>
@@ -41,7 +40,6 @@
                 
                 foreach($seasons as $season) {
                   echo "<tr>";
-                  echo "<td>" . $season["season_num"] . "</td>";
                   echo "<td>" . $season["season_name"] . "</td>";
                   echo "<td>" . $season["date_start"] . "</td>";
                   echo "<td>" . $season["date_end"] . "</td>";

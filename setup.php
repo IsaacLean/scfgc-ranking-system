@@ -3,7 +3,6 @@ include("/db/sql.php");
 
 $sql_rs_seasons = "CREATE TABLE rs_seasons (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    season_num INT(6) NOT NULL,
     season_name VARCHAR(30) NOT NULL,
     date_start DATE,
     date_end DATE
@@ -18,7 +17,6 @@ $sql_rs_season_pts = "CREATE TABLE rs_season_pts (
 
 $sql_rs_events = "CREATE TABLE rs_events (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    event_num INT(6) NOT NULL,
     event_name VARCHAR(30) NOT NULL,
     event_date DATE
 )";
