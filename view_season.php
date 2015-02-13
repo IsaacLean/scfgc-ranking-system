@@ -64,7 +64,56 @@ foreach($season as $data) {
               </thead>
               <tbody>
                 <?php
-                
+                /* Create array to store the amount of points earned for each rank */
+                $season_rank_pts = [];
+
+                /* Get all individual player results for season */
+                $sql_get_season_pts = "SELECT * FROM rs_season_pts WHERE season_id = " . $season_id;
+                $query_season_pts = dbQuery($sql_get_season_pts);
+
+                foreach($query_season_pts as $data) {
+                  $season_rank_pts[$data["rank"]] = $data["points"];
+                }
+
+                /* Create array for season ranks */
+                $season_results = [];
+
+                /* Get all individual player results for season */
+                $sql_get_season_results = "SELECT * FROM rs_event_results WHERE season_id = " . $season_num;
+                $event_results = dbQuery($sql_get_season_results);
+
+                /* Total up players' points earned through entire season */
+                foreach($event_results as $event_result) {
+                  if(array_key_exists($event_result["player_name"], $season_results)) {
+                    // If player already exists in the season results...
+                    //Add to existing points
+                    $season_results[$event_result["player_name"]] += $season_rank_pts[$event_result["player_rank"]];
+                  } else {
+                    // If the player doesn't exist in the season results...
+                    // Create a new index
+                    $season_results[$event_result["player_name"]] = $season_rank_pts[$event_result["player_rank"]];
+                  }
+                }
+
+                /* Sort the players' rankings from highest to lowest */
+                arsort($season_results);
+
+                /* Display the player rankings */
+                $rank_num = 1;
+                $prev_result_total = -1;
+
+                foreach($season_results as $player_name => $total_season_pts) {
+                  if(intval($total_season_pts) < $prev_result_total)
+                    ++$rank_num;
+
+                  echo "<tr>";
+                  echo "<td>$rank_num</td>";
+                  echo "<td>$player_name</td>";
+                  echo "<td>$total_season_pts</td>";
+                  echo "</tr>";
+
+                  $prev_result_total = intval($total_season_pts);
+                }
                 ?>
               </tbody>
             </table>
