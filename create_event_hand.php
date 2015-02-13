@@ -87,21 +87,16 @@ if($lastId !== -1) {
 
 	foreach($keys as $key) {
 		if($results[$key]["name"] !== "") {
+			$sql_new_event_result = "INSERT INTO rs_event_results (season_id, event_id, player_rank, player_name)
+				VALUES ('" . $season . "', '" . $lastId . "', '" . $results[$key]["rank"] . "', '" . $results[$key]["name"] . "')";
+			echo $sql_new_event_result . "<br>";
 			echo $results[$key]["rank"] . ": " . $results[$key]["name"] . "<br>";
+
+			dbInsert($sql_new_event_result);
 		}
 	}
 
-	/*$sql_new_event_result = "INSERT INTO rs_event_results (season_id, rank, points)
-		VALUES
-		( '" . $lastId . "', '1', '" . $rank_1_pts ."'),
-		( '" . $lastId . "', '2', '" . $rank_2_pts ."'),
-		( '" . $lastId . "', '3', '" . $rank_3_pts ."'),
-		( '" . $lastId . "', '4', '" . $rank_4_pts ."'),
-		( '" . $lastId . "', '5', '" . $rank_5_pts ."'),
-		( '" . $lastId . "', '7', '" . $rank_7_pts ."'),
-		( '" . $lastId . "', '9', '" . $rank_9_pts ."'),
-		( '" . $lastId . "', '13', '" . $rank_13_pts ."')";
-
-	dbInsert($sql_new_rank_pts);*/
+	/* Redirect to manage_seasons.php */
+	header('Location: /manage_events.php');
 }
 ?>

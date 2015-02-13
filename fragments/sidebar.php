@@ -6,7 +6,7 @@
         	</ul>
         	<h3>Events</h3>
           	<ul class="nav nav-sidebar">
-	            <li><a href="#">Manage events</a></li>
+	            <li><a href="/manage_events.php">Manage events</a></li>
 	            <li><a href="/create_event.php">Create new event</a></li>
           	</ul>
         </div>
