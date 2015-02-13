@@ -5,7 +5,6 @@ $sql_get_event = "SELECT * FROM rs_events WHERE id = " . $event_id;
 $event = dbQuery($sql_get_event);
 
 foreach($event as $data) {
-  $event_num = $data["event_num"];
   $event_name = $data["event_name"];
   $date = $data["event_date"];
 }
@@ -36,7 +35,6 @@ foreach($event as $data) {
             <table class="table table-striped">
             	<thead>
                 	<tr>
-                    <th>Event #</th>
                 		<th>Event Name</th>
                 		<th>Date</th>
                     <th></th>
@@ -45,7 +43,6 @@ foreach($event as $data) {
               <tbody>
              		<?php
                 echo "<tr>";
-                echo "<td>" . $event_num . "</td>";
                 echo "<td>" . $event_name . "</td>";
                 echo "<td>" . $date . "</td>";
                 echo "</tr>";

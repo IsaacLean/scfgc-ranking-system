@@ -24,7 +24,6 @@
             <table class="table table-striped">
             	<thead>
                 	<tr>
-                    <th>Event #</th>
                 		<th>Event Name</th>
                 		<th>Date</th>
                     <th></th>
@@ -39,7 +38,6 @@
                 
                 foreach($events as $event) {
                   echo "<tr>";
-                  echo "<td>" . $event["event_num"] . "</td>";
                   echo "<td>" . $event["event_name"] . "</td>";
                   echo "<td>" . $event["event_date"] . "</td>";
                   echo "<td><a href=\"/view_event.php?event_id=" . $event["id"] . "\"><button type=\"button\" class=\"btn btn-default\">View</button></a></td>";

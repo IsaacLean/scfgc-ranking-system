@@ -48,10 +48,6 @@ foreach($seasons as $season) {
                 </select>
               </div>
               <div class="form-group">
-                <label for="event_num">Event number</label>
-                <input type="number" class="form-control" id="event_num" name="event_num" placeholder="Ex: 9" required>
-              </div>
-              <div class="form-group">
                 <label for="event_name">Event name</label>
                 <input type="text" class="form-control" id="event_name" name="event_name" placeholder="Ex: Fight Night: Ranked Edition #9" required>
               </div>
