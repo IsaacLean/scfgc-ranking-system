@@ -7,8 +7,8 @@ $event_name = $_POST["event_name"];
 $event_date = $_POST["event_date"];
 
 /* Create new event */
-$sql_new_event = "INSERT INTO rs_events (event_name, event_date)
-	VALUES ('" . $event_name . "', '" . $event_date . "')";
+$sql_new_event = "INSERT INTO rs_events (season_id, event_name, event_date)
+	VALUES ('" . $season_id . "', '" . $event_name . "', '" . $event_date . "')";
 
 $lastId = dbInsert($sql_new_event);
 

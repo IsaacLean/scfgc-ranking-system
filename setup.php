@@ -17,6 +17,7 @@ $sql_rs_season_pts = "CREATE TABLE rs_season_pts (
 
 $sql_rs_events = "CREATE TABLE rs_events (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    season_id INT(6) NOT NULL,
     event_name VARCHAR(30) NOT NULL,
     event_date DATE
 )";

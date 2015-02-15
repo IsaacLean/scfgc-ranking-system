@@ -54,6 +54,27 @@ foreach($season as $data) {
             <table class="table table-striped">
               <thead>
                   <tr>
+                    <th>Event Name</th>
+                    <th>Date</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <?php
+                $sql_get_events = "SELECT * FROM rs_events WHERE season_id = " . $season_id;
+                $events = dbQuery($sql_get_events);
+
+                foreach($events as $event) {
+                  echo "<tr>";
+                  echo "<td>" . $event["event_name"] . "</td>";
+                  echo "<td>" . $event["event_date"] . "</td>";
+                  echo "</tr>";
+                }
+                ?>
+              </tbody>
+            </table>
+            <table class="table table-striped">
+              <thead>
+                  <tr>
                     <th>Rank</th>
                     <th>Player Name</th>
                     <th>Points</th>
