@@ -1,5 +1,5 @@
 <?php
-include("/display_ex/rs_display_config.php");
+include("/rs_display/rs_display_config.php");
 
 function dbQuery($sql) {
 	global $dbHost;
@@ -65,7 +65,7 @@ function get_season_results($season_id) {
 	return $season_results;
 }
 
-function display_season_results($season_results) {
+function print_season_results_table($season_results) {
 	$rank_num = 1;
 	$prev_result_total = -1;
 
@@ -83,5 +83,10 @@ function display_season_results($season_results) {
 	}
 
 	echo "</tbody></table>";
+}
+
+function display_season_results($season_id) {
+	$season_results = get_season_results($season_id);
+	print_season_results_table($season_results);
 }
 ?>
