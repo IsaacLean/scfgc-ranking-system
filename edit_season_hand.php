@@ -1,5 +1,5 @@
 <?php
-include("/db/sql.php");
+include("db/sql.php");
 
 /* Get form values from create_season.php */
 $season_id = $_GET["season_id"];

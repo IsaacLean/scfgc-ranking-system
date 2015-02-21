@@ -16,7 +16,7 @@ foreach($season as $data) {
 /* Get points for ranks in season */
 $sql_get_season_rank_pts = "SELECT * FROM rs_season_pts WHERE season_id = " . $_GET["season_id"];
 $rank_pts = dbQuery($sql_get_season_rank_pts);
-$ranks = [];
+$ranks = array();
 
 foreach($rank_pts as $data) {
 	$ranks[intval($data["rank"])] = intval($data["points"]);
@@ -38,10 +38,10 @@ foreach($rank_pts as $data) {
       <![endif]-->
 </head>
 <body>
-  	<?php include("/fragments/topbar.php") ?>
+  	<?php include("fragments/topbar.php") ?>
   	<div class="container-fluid">
   		<div class="row">
-  			<?php include("/fragments/sidebar.php") ?>
+  			<?php include("fragments/sidebar.php") ?>
   			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   				<h1 class="page-header">Edit "<?php echo $season_name ?>"</h1>
   				<?php
