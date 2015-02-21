@@ -1,5 +1,5 @@
 <?php
-include("/rs_display/rs_display_config.php");
+include("rs_display/rs_display_config.php");
 
 function dbQuery($sql) {
 	global $dbHost;
@@ -29,7 +29,7 @@ function dbQuery($sql) {
 
 function get_season_results($season_id) {
 	/* Create array to store the amount of points earned for each rank */
-    $season_rank_pts = [];
+    $season_rank_pts = array();
 
 	/* Get all individual player results for season */
 	$sql_get_season_pts = "SELECT * FROM rs_season_pts WHERE season_id = " . $season_id;
@@ -40,7 +40,7 @@ function get_season_results($season_id) {
 	}
 
 	/* Create array for season ranks */
-	$season_results = [];
+	$season_results = array();
 
 	/* Get all individual player results for season */
 	$sql_get_season_results = "SELECT * FROM rs_event_results WHERE season_id = " . $season_id;
@@ -69,7 +69,7 @@ function print_season_results_table($season_results) {
 	$rank_num = 1;
 	$prev_result_total = -1;
 
-	echo "<table><thead><tr><th>Rank</th><th>Player Name</th><th>Points</th></tr></thead><tbody>";
+	echo "<table class=\"table table-striped\"><thead><tr><th>Rank</th><th>Player Name</th><th>Points</th></tr></thead><tbody>";
 
 	foreach($season_results as $player_name => $total_season_pts) {
 		if(intval($total_season_pts) < $prev_result_total)

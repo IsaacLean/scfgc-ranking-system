@@ -1,5 +1,5 @@
 <?php
-include("/db/sql.php");
+include("db/sql.php");
 
 /* Get form values from create_event.php */
 $season_id = $_POST["season"];
@@ -88,14 +88,12 @@ if($lastId !== -1) {
 		if($results[$key]["name"] !== "") {
 			$sql_new_event_result = "INSERT INTO rs_event_results (season_id, event_id, player_rank, player_name)
 				VALUES ('" . $season_id . "', '" . $lastId . "', '" . $results[$key]["rank"] . "', '" . $results[$key]["name"] . "')";
-			echo $sql_new_event_result . "<br>";
-			echo $results[$key]["rank"] . ": " . $results[$key]["name"] . "<br>";
 
 			dbInsert($sql_new_event_result);
 		}
 	}
 
 	/* Redirect to manage_seasons.php */
-	header('Location: /manage_events.php');
+	header('Location: manage_events.php');
 }
 ?>

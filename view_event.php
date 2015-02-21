@@ -25,10 +25,10 @@ foreach($event as $data) {
     <![endif]-->
   </head>
   <body>
-    <?php include("/fragments/topbar.php") ?>
+    <?php include("fragments/topbar.php") ?>
     <div class="container-fluid">
       <div class="row">
-        <?php include("/fragments/sidebar.php") ?>
+        <?php include("fragments/sidebar.php") ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">View "<?php echo $event_name ?>"</h1>
           <div class="table-responsive">

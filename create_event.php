@@ -1,9 +1,9 @@
 <?php
-include("/db/sql.php");
+include("db/sql.php");
 
 $sql_get_seasons = "SELECT id, season_name FROM rs_seasons";
 $seasons = dbQuery($sql_get_seasons);
-$seasonArr = [];
+$seasonArr = array();
 
 foreach($seasons as $season) {
   $seasonData = array(
@@ -30,10 +30,10 @@ foreach($seasons as $season) {
     <![endif]-->
   </head>
   <body>
-    <?php include("/fragments/topbar.php") ?>
+    <?php include("fragments/topbar.php") ?>
     <div class="container-fluid">
       <div class="row">
-        <?php include("/fragments/sidebar.php") ?>
+        <?php include("fragments/sidebar.php") ?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Create new event</h1>
             <form action="/create_event_hand.php" method="post">

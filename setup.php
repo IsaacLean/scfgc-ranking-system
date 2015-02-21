@@ -1,5 +1,5 @@
 <?php
-include("/db/sql.php");
+include("db/sql.php");
 
 $sql_rs_seasons = "CREATE TABLE rs_seasons (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
