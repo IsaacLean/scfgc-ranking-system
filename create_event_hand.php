@@ -18,67 +18,67 @@ if($lastId !== -1) {
 	$results = array(
 		"player_rank_1" => array(
 			"rank" => 1,
-			"name" => $_POST["player_rank_1"]
+			"name" => addslashes($_POST["player_rank_1"])
 			),
 		"player_rank_2" => array(
 			"rank" => 2,
-			"name" => $_POST["player_rank_2"]
+			"name" => addslashes($_POST["player_rank_2"])
 			),
 		"player_rank_3" => array(
 			"rank" => 3,
-			"name" => $_POST["player_rank_3"]
+			"name" => addslashes($_POST["player_rank_3"])
 			),
 		"player_rank_4" => array(
 			"rank" => 4,
-			"name" => $_POST["player_rank_4"]
+			"name" => addslashes($_POST["player_rank_4"])
 			),
 		"player_rank_5" => array(
 			"rank" => 5,
-			"name" => $_POST["player_rank_5"]
+			"name" => addslashes($_POST["player_rank_5"])
 			),
 		"player_rank_5_2" => array(
 			"rank" => 5,
-			"name" => $_POST["player_rank_5-2"]
+			"name" => addslashes($_POST["player_rank_5-2"])
 			),
 		"player_rank_7" => array(
 			"rank" => 7,
-			"name" => $_POST["player_rank_7"]
+			"name" => addslashes($_POST["player_rank_7"])
 			),
 		"player_rank_7_2" => array(
 			"rank" => 7,
-			"name" => $_POST["player_rank_7-2"]
+			"name" => addslashes($_POST["player_rank_7-2"])
 			),
 		"player_rank_9" => array(
 			"rank" => 9,
-			"name" => $_POST["player_rank_9"]
+			"name" => addslashes($_POST["player_rank_9"])
 			),
 		"player_rank_9_2" => array(
 			"rank" => 9,
-			"name" => $_POST["player_rank_9-2"]
+			"name" => addslashes($_POST["player_rank_9-2"])
 			),
 		"player_rank_9_3" => array(
 			"rank" => 9,
-			"name" => $_POST["player_rank_9-3"]
+			"name" => addslashes($_POST["player_rank_9-3"])
 			),
 		"player_rank_9_4" => array(
 			"rank" => 9,
-			"name" => $_POST["player_rank_9-4"]
+			"name" => addslashes($_POST["player_rank_9-4"])
 			),
 		"player_rank_13" => array(
 			"rank" => 13,
-			"name" => $_POST["player_rank_13"]
+			"name" => addslashes($_POST["player_rank_13"])
 			),
 		"player_rank_13_2" => array(
 			"rank" => 13,
-			"name" => $_POST["player_rank_13-2"]
+			"name" => addslashes($_POST["player_rank_13-2"])
 			),
 		"player_rank_13_3" => array(
 			"rank" => 13,
-			"name" => $_POST["player_rank_13-3"]
+			"name" => addslashes($_POST["player_rank_13-3"])
 			),
 		"player_rank_13_4" => array(
 			"rank" => 13,
-			"name" => $_POST["player_rank_13-4"]
+			"name" => addslashes($_POST["player_rank_13-4"])
 			)
 	);
 
